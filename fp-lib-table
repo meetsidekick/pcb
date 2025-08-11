@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "tg9541-modules")(type "KiCad")(uri "${KIPRJMOD}/tg9541-modules.pretty")(options "")(descr ""))
+  (lib (name "TG9541")(type "KiCad")(uri "${KIPRJMOD}/tg9541-modules/TG9541.pretty")(options "")(descr ""))
+  (lib (name "usini_sensors")(type "KiCad")(uri "${KIPRJMOD}/usini-sensors/usini_sensors.pretty")(options "")(descr ""))
+)
