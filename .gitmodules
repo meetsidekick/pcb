@@ -4,3 +4,6 @@
 [submodule "tg9541-modules"]
 	path = tg9541-modules
 	url = https://github.com/TG9541/kicad-footprints
+[submodule "Glpyh-C3"]
+	path = Glpyh-C3
+	url = https://github.com/pcbcupid/PCBCUPID-Glyph-C3
