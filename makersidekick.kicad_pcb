@@ -117,27 +117,34 @@
 		)
 	)
 	(net 0 "")
-	(net 1 "/SCL")
-	(net 2 "/RESET")
-	(net 3 "+3.3V")
-	(net 4 "GND")
-	(net 5 "/BATT_MSR")
-	(net 6 "/GPIO_1")
-	(net 7 "/GPIO_2")
-	(net 8 "/GPIO_3")
-	(net 9 "/USB_D-")
-	(net 10 "/USB_D+")
-	(net 11 "/SCK")
-	(net 12 "/MOSI")
-	(net 13 "/MISO")
-	(net 14 "/uRx")
-	(net 15 "/uTx")
-	(net 16 "+BATT")
-	(net 17 "VBUS")
-	(net 18 "unconnected-(J2-Pin_8-Pad8)")
-	(net 19 "/GPIO_9")
-	(net 20 "/GPIO_8")
-	(net 21 "/SDA")
+	(net 1 "unconnected-(J4-Pin_9-Pad9)")
+	(net 2 "unconnected-(J4-Pin_8-Pad8)")
+	(net 3 "unconnected-(J4-Pin_16-Pad16)")
+	(net 4 "unconnected-(J4-Pin_6-Pad6)")
+	(net 5 "unconnected-(J4-Pin_15-Pad15)")
+	(net 6 "unconnected-(J4-Pin_1-Pad1)")
+	(net 7 "unconnected-(J4-Pin_12-Pad12)")
+	(net 8 "unconnected-(J4-Pin_11-Pad11)")
+	(net 9 "unconnected-(J4-Pin_4-Pad4)")
+	(net 10 "unconnected-(J4-Pin_13-Pad13)")
+	(net 11 "unconnected-(J2-Pin_8-Pad8)")
+	(net 12 "unconnected-(J4-Pin_7-Pad7)")
+	(net 13 "unconnected-(J4-Pin_2-Pad2)")
+	(net 14 "unconnected-(J4-Pin_3-Pad3)")
+	(net 15 "unconnected-(J4-Pin_5-Pad5)")
+	(net 16 "unconnected-(J4-Pin_14-Pad14)")
+	(net 17 "unconnected-(J4-Pin_10-Pad10)")
+	(net 18 "unconnected-(J2-Pin_9-Pad9)")
+	(net 19 "unconnected-(J2-Pin_7-Pad7)")
+	(net 20 "unconnected-(J2-Pin_5-Pad5)")
+	(net 21 "unconnected-(J2-Pin_4-Pad4)")
+	(net 22 "unconnected-(J2-Pin_12-Pad12)")
+	(net 23 "unconnected-(J2-Pin_3-Pad3)")
+	(net 24 "unconnected-(J2-Pin_10-Pad10)")
+	(net 25 "unconnected-(J2-Pin_11-Pad11)")
+	(net 26 "unconnected-(J2-Pin_1-Pad1)")
+	(net 27 "unconnected-(J2-Pin_6-Pad6)")
+	(net 28 "unconnected-(J2-Pin_2-Pad2)")
 	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "266396cd-6b4d-4317-b7dd-43c26264f51e")
@@ -148,7 +155,7 @@
 			(at 0 -2.77 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "dc420099-6524-4ad6-8036-45f5b9efc4d7")
+			(uuid "421bf65a-82b9-4cfb-ae84-ba84eac413f5")
 			(effects
 				(font
 					(size 1 1)
@@ -159,7 +166,7 @@
 		(property "Value" "Conn_01x16"
 			(at 0 40.87 90)
 			(layer "F.Fab")
-			(uuid "7ba0a852-d345-44db-a3fb-bc44d2ee9b92")
+			(uuid "bda8b9c0-d4fb-4ec4-bccc-93f60e4ed0b0")
 			(effects
 				(font
 					(size 1 1)
@@ -172,7 +179,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2e36191e-475b-474e-b0d6-1828fbea534b")
+			(uuid "5c5363e6-e447-496d-8b5b-d295d3c2b6c6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -185,7 +192,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "88aa2dfd-458a-4f31-9b53-ed81ebaa0c2c")
+			(uuid "19da6bc4-4369-4fe6-a3e8-83e3e04ceb6f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -232,6 +239,8 @@
 				)
 			)
 		)
+		(sheetname "/")
+		(sheetfile "makersidekick.kicad_sch")
 		(attr through_hole dnp allow_soldermask_bridges)
 		(fp_line
 			(start 0.635 -1.27)
@@ -302,7 +311,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 2 "/RESET")
+			(net 6 "unconnected-(J4-Pin_1-Pad1)")
 			(pinfunction "Pin_1")
 			(pintype "passive")
 			(teardrops
@@ -326,7 +335,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 3 "+3.3V")
+			(net 13 "unconnected-(J4-Pin_2-Pad2)")
 			(pinfunction "Pin_2")
 			(pintype "passive")
 			(teardrops
@@ -350,7 +359,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 3 "+3.3V")
+			(net 14 "unconnected-(J4-Pin_3-Pad3)")
 			(pinfunction "Pin_3")
 			(pintype "passive")
 			(teardrops
@@ -374,7 +383,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 4 "GND")
+			(net 9 "unconnected-(J4-Pin_4-Pad4)")
 			(pinfunction "Pin_4")
 			(pintype "passive")
 			(teardrops
@@ -398,7 +407,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 5 "/BATT_MSR")
+			(net 15 "unconnected-(J4-Pin_5-Pad5)")
 			(pinfunction "Pin_5")
 			(pintype "passive")
 			(teardrops
@@ -422,7 +431,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 6 "/GPIO_1")
+			(net 4 "unconnected-(J4-Pin_6-Pad6)")
 			(pinfunction "Pin_6")
 			(pintype "passive")
 			(teardrops
@@ -446,7 +455,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 7 "/GPIO_2")
+			(net 12 "unconnected-(J4-Pin_7-Pad7)")
 			(pinfunction "Pin_7")
 			(pintype "passive")
 			(teardrops
@@ -470,7 +479,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 8 "/GPIO_3")
+			(net 2 "unconnected-(J4-Pin_8-Pad8)")
 			(pinfunction "Pin_8")
 			(pintype "passive")
 			(teardrops
@@ -494,7 +503,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 9 "/USB_D-")
+			(net 1 "unconnected-(J4-Pin_9-Pad9)")
 			(pinfunction "Pin_9")
 			(pintype "passive")
 			(teardrops
@@ -518,7 +527,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 10 "/USB_D+")
+			(net 17 "unconnected-(J4-Pin_10-Pad10)")
 			(pinfunction "Pin_10")
 			(pintype "passive")
 			(teardrops
@@ -542,7 +551,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 11 "/SCK")
+			(net 8 "unconnected-(J4-Pin_11-Pad11)")
 			(pinfunction "Pin_11")
 			(pintype "passive")
 			(teardrops
@@ -566,7 +575,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 12 "/MOSI")
+			(net 7 "unconnected-(J4-Pin_12-Pad12)")
 			(pinfunction "Pin_12")
 			(pintype "passive")
 			(teardrops
@@ -590,7 +599,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 13 "/MISO")
+			(net 10 "unconnected-(J4-Pin_13-Pad13)")
 			(pinfunction "Pin_13")
 			(pintype "passive")
 			(teardrops
@@ -614,7 +623,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 14 "/uRx")
+			(net 16 "unconnected-(J4-Pin_14-Pad14)")
 			(pinfunction "Pin_14")
 			(pintype "passive")
 			(teardrops
@@ -638,7 +647,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 15 "/uTx")
+			(net 5 "unconnected-(J4-Pin_15-Pad15)")
 			(pinfunction "Pin_15")
 			(pintype "passive")
 			(teardrops
@@ -662,7 +671,7 @@
 			(remove_unused_layers yes)
 			(keep_end_layers yes)
 			(zone_layer_connections)
-			(net 4 "GND")
+			(net 3 "unconnected-(J4-Pin_16-Pad16)")
 			(pinfunction "Pin_16")
 			(pintype "passive")
 			(teardrops
@@ -1892,6 +1901,64 @@
 		)
 		(embedded_fonts no)
 	)
+	(footprint ""
+		(layer "F.Cu")
+		(uuid "99ee0856-697e-4179-afbd-55e54991f5ef")
+		(at 191.516 89.408)
+		(property "Reference" ""
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(uuid "9b507a5c-8fd9-44ca-ad6a-27623a33f23b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "f90a2a6c-d8a8-490f-a776-ee21800736ee")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "25f1d970-d5f5-4670-967c-de85b823744b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8847e69c-d36b-4777-9bf0-21b5a122fefe")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "3" smd circle
+			(at 0 0)
+			(size 5.7 5.7)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(uuid "4708b875-9554-4b16-9f48-62ec47b838c2")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "a097ce57-23d6-4426-992c-5b1e735ef66f")
@@ -1901,6 +1968,7 @@
 		(property "Reference" "REF**"
 			(at 3.81 -1.92 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "92388331-d65f-41aa-ad25-3ac07fba68bf")
 			(effects
 				(font
@@ -2745,7 +2813,7 @@
 			(at 0 2.77 270)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "9293db60-1904-42e1-b476-3e1c251b0000")
+			(uuid "a760aa37-5ff2-4d08-adda-e0253057e1fb")
 			(effects
 				(font
 					(size 1 1)
@@ -2757,7 +2825,7 @@
 		(property "Value" "Conn_01x12"
 			(at 0 -30.71 270)
 			(layer "B.Fab")
-			(uuid "69d33566-9249-4738-9b08-830863132493")
+			(uuid "7cc60aff-b217-4a91-8005-bf002832ea39")
 			(effects
 				(font
 					(size 1 1)
@@ -2771,7 +2839,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e4e46e7a-c71f-4e90-8488-d7ca1891836e")
+			(uuid "0cb0a1c6-5656-41ae-bb14-ac9487a2250c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2785,7 +2853,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "c4e24049-7309-4b36-9350-e52992775542")
+			(uuid "c1c9269a-8e2c-42b6-82f7-083b0ff5831b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2836,6 +2904,8 @@
 				(justify mirror)
 			)
 		)
+		(sheetname "/")
+		(sheetfile "makersidekick.kicad_sch")
 		(attr through_hole dnp)
 		(fp_line
 			(start -1.27 1.27)
@@ -2905,7 +2975,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 16 "+BATT")
+			(net 26 "unconnected-(J2-Pin_1-Pad1)")
 			(pinfunction "Pin_1")
 			(pintype "passive")
 			(teardrops
@@ -2927,7 +2997,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 2 "/RESET")
+			(net 28 "unconnected-(J2-Pin_2-Pad2)")
 			(pinfunction "Pin_2")
 			(pintype "passive")
 			(teardrops
@@ -2949,7 +3019,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 17 "VBUS")
+			(net 23 "unconnected-(J2-Pin_3-Pad3)")
 			(pinfunction "Pin_3")
 			(pintype "passive")
 			(teardrops
@@ -2971,7 +3041,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 5 "/BATT_MSR")
+			(net 21 "unconnected-(J2-Pin_4-Pad4)")
 			(pinfunction "Pin_4")
 			(pintype "passive")
 			(teardrops
@@ -2993,7 +3063,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 6 "/GPIO_1")
+			(net 20 "unconnected-(J2-Pin_5-Pad5)")
 			(pinfunction "Pin_5")
 			(pintype "passive")
 			(teardrops
@@ -3015,7 +3085,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 7 "/GPIO_2")
+			(net 27 "unconnected-(J2-Pin_6-Pad6)")
 			(pinfunction "Pin_6")
 			(pintype "passive")
 			(teardrops
@@ -3037,7 +3107,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 8 "/GPIO_3")
+			(net 19 "unconnected-(J2-Pin_7-Pad7)")
 			(pinfunction "Pin_7")
 			(pintype "passive")
 			(teardrops
@@ -3059,9 +3129,9 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 18 "unconnected-(J2-Pin_8-Pad8)")
+			(net 11 "unconnected-(J2-Pin_8-Pad8)")
 			(pinfunction "Pin_8")
-			(pintype "passive+no_connect")
+			(pintype "passive")
 			(teardrops
 				(best_length_ratio 0.5)
 				(max_length 1)
@@ -3081,7 +3151,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 19 "/GPIO_9")
+			(net 18 "unconnected-(J2-Pin_9-Pad9)")
 			(pinfunction "Pin_9")
 			(pintype "passive")
 			(teardrops
@@ -3103,7 +3173,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 20 "/GPIO_8")
+			(net 24 "unconnected-(J2-Pin_10-Pad10)")
 			(pinfunction "Pin_10")
 			(pintype "passive")
 			(teardrops
@@ -3125,7 +3195,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 21 "/SDA")
+			(net 25 "unconnected-(J2-Pin_11-Pad11)")
 			(pinfunction "Pin_11")
 			(pintype "passive")
 			(teardrops
@@ -3147,7 +3217,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 1 "/SCL")
+			(net 22 "unconnected-(J2-Pin_12-Pad12)")
 			(pinfunction "Pin_12")
 			(pintype "passive")
 			(teardrops
@@ -5700,7 +5770,7 @@
 		(end 177.89 86.45)
 		(width 0.2)
 		(layer "B.Cu")
-		(net 18)
+		(net 11)
 		(uuid "35342120-4495-4e6d-bf13-24007334414f")
 	)
 	(segment
@@ -5708,7 +5778,7 @@
 		(end 181.533785 90.058323)
 		(width 0.2)
 		(layer "B.Cu")
-		(net 18)
+		(net 11)
 		(uuid "6db39db9-0234-48fb-86ea-c4adcdc7b049")
 	)
 	(segment
@@ -5716,7 +5786,7 @@
 		(end 181.516054 90.076054)
 		(width 0.2)
 		(layer "B.Cu")
-		(net 18)
+		(net 11)
 		(uuid "f4f60d45-e1ce-4050-b129-f23ef0e62120")
 	)
 	(segment
@@ -5724,7 +5794,7 @@
 		(end 180.34 84.328)
 		(width 0.2)
 		(layer "B.Cu")
-		(net 19)
+		(net 18)
 		(uuid "2541cbd4-febb-493c-a9e5-1b524aef0e7d")
 	)
 	(segment
@@ -5732,17 +5802,17 @@
 		(end 180.43 84.238)
 		(width 0.2)
 		(layer "B.Cu")
-		(net 19)
+		(net 18)
 		(uuid "984520e6-13b4-4918-b947-876cc1baab20")
 	)
 	(zone
 		(net 18)
-		(net_name "unconnected-(J2-Pin_8-Pad8)")
+		(net_name "unconnected-(J2-Pin_9-Pad9)")
 		(layer "B.Cu")
-		(uuid "79a3b665-6d07-4745-847b-d011835d3ce3")
+		(uuid "8f470c0c-3a83-4e2b-a500-befaa5f44b5b")
 		(name "$teardrop_padvia$")
 		(hatch none 0.1)
-		(priority 30000)
+		(priority 30001)
 		(attr
 			(teardrop
 				(type padvia)
@@ -5761,21 +5831,24 @@
 		)
 		(polygon
 			(pts
-				(xy 177.79 83.983667) (xy 177.99 83.983667) (xy 178.596749 82.772235) (xy 177.89 82.299) (xy 177.183251 82.772235)
+				(xy 180.33 83.983667) (xy 180.53 83.983667) (xy 181.136749 82.772235) (xy 180.43 82.299) (xy 179.723251 82.772235)
 			)
 		)
 		(filled_polygon
 			(layer "B.Cu")
 			(pts
-				(xy 177.79 83.983667) (xy 177.99 83.983667) (xy 178.596749 82.772235) (xy 177.89 82.299) (xy 177.183251 82.772235)
+				(xy 180.43651 82.303359) (xy 181.128178 82.766496) (xy 181.133145 82.773947) (xy 181.132129 82.781458)
+				(xy 180.533236 83.977207) (xy 180.526467 83.983069) (xy 180.522775 83.983667) (xy 180.337225 83.983667)
+				(xy 180.328952 83.98024) (xy 180.326764 83.977207) (xy 179.72787 82.781458) (xy 179.727229 82.772526)
+				(xy 179.73182 82.766497) (xy 180.42349 82.303358) (xy 180.432271 82.301604)
 			)
 		)
 	)
 	(zone
-		(net 19)
-		(net_name "/GPIO_9")
+		(net 11)
+		(net_name "unconnected-(J2-Pin_8-Pad8)")
 		(layer "B.Cu")
-		(uuid "d63020c8-50dd-4928-b8ad-8601474ac20c")
+		(uuid "97289631-f637-43e1-b60d-6a5a6df22e19")
 		(name "$teardrop_padvia$")
 		(hatch none 0.1)
 		(priority 30000)
@@ -5797,13 +5870,16 @@
 		)
 		(polygon
 			(pts
-				(xy 180.33 83.983667) (xy 180.53 83.983667) (xy 181.136749 82.772235) (xy 180.43 82.299) (xy 179.723251 82.772235)
+				(xy 177.79 83.983667) (xy 177.99 83.983667) (xy 178.596749 82.772235) (xy 177.89 82.299) (xy 177.183251 82.772235)
 			)
 		)
 		(filled_polygon
 			(layer "B.Cu")
 			(pts
-				(xy 180.33 83.983667) (xy 180.53 83.983667) (xy 181.136749 82.772235) (xy 180.43 82.299) (xy 179.723251 82.772235)
+				(xy 177.89651 82.303359) (xy 178.588178 82.766496) (xy 178.593145 82.773947) (xy 178.592129 82.781458)
+				(xy 177.993236 83.977207) (xy 177.986467 83.983069) (xy 177.982775 83.983667) (xy 177.797225 83.983667)
+				(xy 177.788952 83.98024) (xy 177.786764 83.977207) (xy 177.18787 82.781458) (xy 177.187229 82.772526)
+				(xy 177.19182 82.766497) (xy 177.88349 82.303358) (xy 177.892271 82.301604)
 			)
 		)
 	)
