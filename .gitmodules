@@ -1,0 +1,6 @@
+[submodule "usini-sensors"]
+	path = usini-sensors
+	url = https://github.com/usini/usini_kicad_sensors
+[submodule "tg9541-modules"]
+	path = tg9541-modules
+	url = https://github.com/TG9541/kicad-footprints
