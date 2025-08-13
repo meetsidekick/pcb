@@ -7,3 +7,6 @@
 [submodule "Glpyh-C3"]
 	path = Glpyh-C3
 	url = https://github.com/pcbcupid/PCBCUPID-Glyph-C3
+[submodule "PCBCUPID-SYS-FTP-STP"]
+	path = PCBCUPID-SYS-FTP-STP
+	url = https://github.com/pcbcupid/PCBCUPID-SYS-FTP-STP
