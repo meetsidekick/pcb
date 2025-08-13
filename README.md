@@ -1,7 +1,11 @@
 # pcb
 
 > [!WARNING]
-> This is being redone properly, the wholesome way for DRC to play nicer. Please wait for a few days or talk to me in issues/discussions...
+> This is a Work In Progress!
+
+This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.2.5`
+
+## Open Locally(KiCad)
 
 ```bash
 git clone https://github.com/MakerSidekick/pcb --recursive sidekick-pcb
@@ -14,11 +18,19 @@ cd sidekick-pcb
 ```bash
 git submodule update --init --recursive
 ```
-<!--
-## Screenshots
-### Front Layers
-![A screenshot of a trimmed down ESP32C3 Board to act as addon, Front layer](assets/front.png)
-### Back Layers
-![A screenshot of a trimmed down ESP32C3 Board to act as addon, Back layer](assets/back.png)
 
--->
+Now open KiCad, navigate to `File` -> `Open Project` and select this project. 
+
+## Screenshots
+
+### Schematics
+![A screenshot of a sidekick board, schematics](assets/sch.jpg)
+
+### PCB
+![A screenshot of a sidekick board, schematics](assets/pcb.png)
+
+### Render
+![A screenshot of a sidekick board, rendered, front side](assets/render-front.png)
+
+![A screenshot of a sidekick board, rendered, back side](assets/render-back.png)
+
