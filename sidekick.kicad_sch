@@ -7,7 +7,7 @@
 	(title_block
 		(title "Sidekick PCB")
 		(date "2025-08-14")
-		(rev "v0.3.7")
+		(rev "v0.3.8")
 	)
 	(lib_symbols
 		(symbol "DM-OLED096-636:DM-OLED096-636"
