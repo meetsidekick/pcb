@@ -3,7 +3,7 @@
 > [!WARNING]
 > This is a Work In Progress!
 
-This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.3.9`
+This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.4.0`
 
 ## Open Locally(KiCad)
 
