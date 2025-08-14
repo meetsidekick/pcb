@@ -27,7 +27,7 @@ Now open KiCad, navigate to `File` -> `Open Project` and select this project.
 ![A screenshot of a sidekick board, schematics](assets/sch.jpg)
 
 ### PCB
-![A screenshot of a sidekick board, schematics](assets/pcb.png)
+![A screenshot of a sidekick board, schematics](assets/pcb.jpg)
 
 ### Render
 ![A screenshot of a sidekick board, rendered, front side](assets/render-front.png)
