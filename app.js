@@ -214,14 +214,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Console easter egg
     console.log(`
-    ╔══════════════════════════════════════╗
-    ║              SIDEKICK v0             ║
-    ║          Team "Burn this Hardware"   ║
-    ║                                      ║
-    ║  Press SPACE to toggle auto-rotate   ║
-    ║  Press ESC to reset camera view      ║
-    ║  GitHub link: github.com/MakerSidekick║
-    ╚══════════════════════════════════════╝
+    ╔═=═════════════════════════════════════╗
+    ║               SIDEKICK v0             ║
+    ║       Team "Burn this Hardware"       ║
+    ║                                       ║
+    ║   Press SPACE to toggle auto-rotate   ║
+    ║    Press ESC to reset camera view     ║
+    ║ GitHub link: github.com/MakerSidekick ║
+    ╚═══=═══════════════════════════════════╝
     `);
     
     // Application ready state
