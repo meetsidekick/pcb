@@ -49,16 +49,20 @@
                     auto-rotate
                     camera-controls
                     touch-action="pan-y"
-                    loading="lazy"
+                    loading="eager"
                     reveal="auto"
                     environment-image="neutral"
-                    shadow-intensity="1"
-                    camera-orbit="45deg 75deg 2m">
+                    shadow-intensity="0"
+                    camera-orbit="45deg 75deg 5m">
                 </model-viewer>
                 
                 <!-- Fallback error message -->
                 <div class="fallback-message" id="fallback">
-                    <p>We wanted to show the sidekick here but it didn't quite work out! :(</p>
+                    <p>We wanted to show the sidekick here but it didn't quite work out!</p>
+                    </br>
+                    <p>:(</p>
+                    </br>
+                    <p>If you are using a privacy-focused browser, please enable WebGL and JIT/Javascript! Try reloading...?s</p>
                 </div>
             </div>
         </div>
