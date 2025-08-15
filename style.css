@@ -818,6 +818,13 @@ body {
     opacity: 0.8;
 }
 
+
+.credits {
+    font-size: var(--font-size-base);
+    margin: 0 0 var(--space-16) 0;
+    line-height: 1.7;
+}
+
 .status {
     display: flex;
     align-items: center;
