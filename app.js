@@ -1,20 +1,86 @@
-// SIDEKICK v0 - JavaScript functionality
+// SIDEKICK v0 - JavaScript functionality (with improved text load animations and model load fallback handling)
+
 document.addEventListener('DOMContentLoaded', function() {
+
     const modelViewer = document.getElementById('sidekick-model');
     const fallbackMessage = document.getElementById('fallback');
     let modelLoadTimeout;
 
-    // Model loading and error handling
+    // Utility for showing fallback
+    function showFallback() {
+        if (fallbackMessage) {
+            console.log('Showing fallback message');
+            fallbackMessage.classList.add('show');
+            startBreathingText();
+            if (modelViewer) {
+                modelViewer.style.display = 'none';
+            }
+        }
+    }
+
+    // Text breathing animation for fallback
+    function startBreathingText() {
+        if (!fallbackMessage) return;
+        let visible = true;
+        fallbackMessage.style.opacity = '1';
+        fallbackMessage.style.transition = 'opacity 1.2s ease-in-out';
+        fallbackMessage._breathingInterval = setInterval(() => {
+            fallbackMessage.style.opacity = visible ? '0.4' : '1';
+            visible = !visible;
+        }, 1200);
+    }
+
+    function stopBreathingText() {
+        if (!fallbackMessage) return;
+        clearInterval(fallbackMessage._breathingInterval);
+        fallbackMessage.style.opacity = '1';
+    }
+
+    // Incremental text loading animation with improved logic
+    function initTextAnimations() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const greetings = document.querySelectorAll('.greeting');
+        const statusText = document.querySelectorAll('.status-text');
+
+        // Hide all greetings before animation
+        greetings.forEach(greeting => {
+            greeting.style.opacity = '0';
+            greeting.style.transition = 'opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)';
+        });
+
+        // Hide all status texts before animation
+        statusText.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)';
+        });
+
+        // Animate greetings incrementally (staggered)
+        greetings.forEach((greeting, i) => {
+            setTimeout(() => {
+                greeting.style.opacity = '1';
+            }, 100 + i * 100); // Stagger by 100ms for smoother look
+        });
+
+        // Animate status texts only after greetings finish
+        statusText.forEach((el, i) => {
+            setTimeout(() => {
+                el.style.opacity = '1';
+            }, 50 + greetings.length * 100 + i * 90);
+        });
+    }
+
+    // MODEL HANDLING
+
     if (modelViewer) {
         // Hide fallback initially
         fallbackMessage.style.display = 'none';
 
-        // Aggressively optimize model-viewer for speed
-        modelViewer.style.transition = 'none';           // Remove initial transitions
-        modelViewer.style.willChange = 'auto';           // Prevent memory budget issues
+        // Optimize model-viewer for speed
+        modelViewer.style.transition = 'none';
+        modelViewer.style.willChange = 'auto';
         modelViewer.setAttribute('power-preference', 'low-power');
-        modelViewer.setAttribute('shadow-softness', '0'); // Hard shadows
-        //modelViewer.setAttribute('interaction-prompt', 'none'); // No built-in prompt overlay
+        modelViewer.setAttribute('shadow-softness', '0');
 
         // Loading timeout of 8 seconds
         modelLoadTimeout = setTimeout(() => {
@@ -24,30 +90,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 8000);
 
-        // Handle successful model load
+        // Successful model load
         modelViewer.addEventListener('load', function() {
             console.log('Model loaded successfully');
             clearTimeout(modelLoadTimeout);
             fallbackMessage.classList.remove('show');
-            fallbackMessage.style.display = 'none';
+            stopBreathingText();
             modelViewer.style.display = 'block';
-
-            // Only add transition after successful load
             modelViewer.style.transition = 'opacity 0.2s ease';
         });
 
-        // Handle loading errors
+        // Loading error
         modelViewer.addEventListener('error', function(event) {
             console.error('Model failed to load:', event.detail);
             clearTimeout(modelLoadTimeout);
             showFallback();
-        });
-
-        // Warn if model becomes hidden
-        modelViewer.addEventListener('model-visibility', function(event) {
-            if (event.detail.visible === false) {
-                console.warn('Model visibility changed to false');
-            }
         });
 
         // Quick source validation
@@ -59,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 3000);
 
-        // Enhanced camera controls for better UX, avoid blur
+        // Enhanced camera controls
         let cameraTimeout;
         modelViewer.addEventListener('camera-change', function() {
-            modelViewer.style.filter = 'none'; // ensure no residual blur
+            modelViewer.style.filter = 'none';
             modelViewer.style.cursor = 'grabbing';
             clearTimeout(cameraTimeout);
             cameraTimeout = setTimeout(() => {
@@ -73,17 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Model viewer element not found');
         showFallback();
-    }
-
-    function showFallback() {
-        if (fallbackMessage) {
-            console.log('Showing fallback message');
-            fallbackMessage.style.display = 'block';
-            fallbackMessage.classList.add('show');
-            if (modelViewer) {
-                modelViewer.style.display = 'none';
-            }
-        }
     }
 
     // GitHub link functionality
@@ -102,23 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Lightweight text animations
-    function initTextAnimations() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const greetings = document.querySelectorAll('.greeting');
-        greetings.forEach((greeting, i) => {
-            greeting.style.opacity = '0';
-            greeting.style.transition = 'opacity 0.4s ease';
-            setTimeout(() => greeting.style.opacity = '0.9', 150 + i * 100);
-        });
-        const statusText = document.querySelectorAll('.status-text');
-        statusText.forEach((el, i) => {
-            el.style.opacity = '0';
-            el.style.transition = 'opacity 0.3s ease';
-            setTimeout(() => el.style.opacity = '1', 600 + i * 150);
-        });
-    }
-
     // Footer interaction
     function initFooterInteraction() {
         const githubLink = document.querySelector('.github-link');
@@ -128,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Responsive handling
+    // Responsive viewport height
     function adjustModelViewerHeight() {
         if (window.innerWidth <= 768) {
             const vh = window.innerHeight * 0.01;
@@ -150,8 +179,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize all
+    // Start incremental text load animation as soon as possible
     setTimeout(initTextAnimations, 50);
+
+    // Other initializers
     setTimeout(initFooterInteraction, 100);
     setTimeout(initKeyboardNavigation, 150);
     initGitHubLink();
