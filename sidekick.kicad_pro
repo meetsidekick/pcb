@@ -483,15 +483,15 @@
   },
   "pcbnew": {
     "last_paths": {
-      "gencad": "",
+      "gencad": "assets/3d-cad/sidekick.cad",
       "idf": "",
       "netlist": "",
       "plot": "../out-v0-4-2/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "assets/3d/sidekick.glb",
       "svg": "",
-      "vrml": ""
+      "vrml": "assets/3d/sidekick.wrl"
     },
     "page_layout_descr_file": ""
   },
