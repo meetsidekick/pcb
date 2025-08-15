@@ -486,7 +486,7 @@
       "gencad": "assets/3d-cad/sidekick.cad",
       "idf": "",
       "netlist": "",
-      "plot": "../out-v0-4-2/",
+      "plot": "../out-v0-4-8/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "assets/3d/sidekick.glb",
