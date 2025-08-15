@@ -1,512 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIDEKICK</title>
-    <meta name="title" content="SIDEKICK" />
-    <meta
-      name="description"
-      content="Hello World. Greetings. Namaskaram. Built with MONO design principles."
-    />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              mono: ["Space Mono", "monospace"],
-            },
-            animation: {
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-          },
-        },
-      };
-    </script>
-    
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-      
-      * {
-        font-family: "Space Mono", monospace;
-      }
-      
-      /* Noise background effect */
-      .noise-bg {
-        position: relative;
-      }
-      
-      .noise-bg::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.03;
-        z-index: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      }
-
-      /* Grid background */
-      .grid-bg {
-        background-size: 40px 40px;
-        background-image: 
-          linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-      }
-      
-      /* Fullscreen overlay */
-      .fullscreen-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: white;
-        z-index: 9999;
-        display: none;
-        flex-direction: column;
-      }
-      
-      .fullscreen-overlay.active {
-        display: flex;
-        animation: fadeIn 0.3s ease-out;
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      /* Enhanced hover effects */
-      .hover-invert {
-        transition: all 0.3s ease;
-      }
-      
-      .hover-invert:hover {
-        background: white;
-        color: black;
-        transform: translateY(-2px);
-        box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
-      }
-      
-      /* PCB Viewer specific styles */
-      .kicanvas-iframe {
-        width: 100%;
-        height: 100%;
-        border: 2px solid black;
-        background: white;
-        transition: all 0.3s ease;
-      }
-      
-      .kicanvas-iframe:focus {
-        outline: 4px solid black;
-        outline-offset: 2px;
-      }
-      
-      /* Status indicators */
-      .status-indicator {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .status-indicator::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        transition: left 0.5s;
-      }
-      
-      .status-indicator.loading::before {
-        animation: shimmer 1.5s infinite;
-      }
-      
-      @keyframes shimmer {
-        0% { left: -100%; }
-        100% { left: 100%; }
-      }
-
-      /* Mobile responsive adjustments */
-      @media (max-width: 768px) {
-        .mobile-stack {
-          flex-direction: column;
-          gap: 12px;
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDEKICK v0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Content Section -->
+        <div class="content-section">
+            <div class="content-wrapper">
+                <h1 class="main-title">SIDEKICK v0</h1>
+                
+                <div class="greetings">
+                    <p class="greeting">Hello World.</p>
+                    <p class="greeting">Greetings.</p>
+                    <p class="greeting">Namaskaram.</p>
+                </div>
+                
+                <div class="description-section">
+                    <p class="description">This page will be replaced soon, but for now, we have a PCB preview screen.</p>
+                    <p class="team">Team "Burn this Hardware"</p>
+                </div>
+                
+                <div class="status">
+                    <span class="status-text">Work in Progress</span>
+                    <span class="status-separator">•</span>
+                    <span class="status-text">Coming Soon</span>
+                </div>
+            </div>
+        </div>
         
-        .mobile-full {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body class="bg-white text-black min-h-screen">
-    
-    <!-- Main Landing Page -->
-    <div class="min-h-screen flex flex-col">
-      
-      <!-- Header/Navigation -->
-      <nav class="px-8 py-6 border-b-2 border-black relative z-10">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-          <div class="text-2xl font-bold tracking-wider">
-            SIDE<span class="text-xs align-super">KICK</span>
-          </div>
-          <div class="text-xs uppercase tracking-widest opacity-60">
-            Coming Soon
-          </div>
-        </div>
-      </nav>
-
-      <!-- Hero Section -->
-      <main class="flex-1 flex items-center justify-center relative overflow-hidden noise-bg">
-        
-        <!-- Background geometric elements -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-5">
-          <div class="w-96 h-96 border-4 border-black rotate-45"></div>
-          <div class="w-64 h-64 bg-black rounded-full absolute -top-32 -right-32"></div>
-          <div class="w-32 h-32 border-2 border-black absolute bottom-24 left-24"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto text-center px-8 relative z-10">
-          
-          <!-- Title -->
-          <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-none tracking-tighter">
-            SIDEKICK</span>
-          </h1>
-          
-          <!-- Subtitle -->
-          <div class="text-lg md:text-xl mb-12 space-y-2 max-w-2xl mx-auto">
-            <p class="font-normal">Hello World.</p>
-            <p class="opacity-80">Greetings.</p>
-            <p class="text-sm opacity-70">Namaskaram.</p>
-          </div>
-          
-          <!-- Description Block -->
-          <div class="max-w-2xl mx-auto mb-16 p-8 border-2 border-black bg-gray-50 relative">
-            <div class="absolute top-0 left-0 w-4 h-4 bg-black"></div>
-            <div class="absolute top-0 right-0 w-4 h-4 bg-black"></div>
-            <div class="absolute bottom-0 left-0 w-4 h-4 bg-black"></div>
-            <div class="absolute bottom-0 right-0 w-4 h-4 bg-black"></div>
-            
-            <p class="text-sm leading-relaxed text-left">
-              This page will be replaced soon, but for now, we have a PCB preview screen.
-            </p>
-            
-            <div class="mt-6 pt-6 border-t border-gray-300 text-xs uppercase tracking-widest opacity-60">
-              <span>Work in Progress</span> • <span>Coming Soon</span>
+        <!-- Right Model Viewer Section -->
+        <div class="model-section">
+            <div class="model-container">
+                <model-viewer
+                    id="sidekick-model"
+                    src="https://cdn.jsdelivr.net/gh/MakerSidekick/pcb@main/assets/3d/sidekick.glb"
+                    alt="SIDEKICK PCB 3D Model"
+                    auto-rotate
+                    camera-controls
+                    touch-action="pan-y"
+                    loading="lazy"
+                    reveal="auto"
+                    environment-image="neutral"
+                    shadow-intensity="1"
+                    camera-orbit="45deg 75deg 2m">
+                </model-viewer>
+                
+                <!-- Fallback error message -->
+                <div class="fallback-message" id="fallback">
+                    <p>We wanted to show the sidekick here but it didn't quite work out! :(</p>
+                </div>
             </div>
-          </div>
-          
-          <!-- CTA Button -->
-          <div class="mb-16">
-            <button 
-              id="previewBtn"
-              class="bg-black text-white px-12 py-4 text-sm font-bold uppercase tracking-widest hover-invert border-2 border-black transition-all duration-300 cursor-pointer relative group"
-            >
-              <span class="relative z-10">PCB Preview Screen</span>
-              <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-            </button>
-          </div>
-          
-          <!-- Technical specs -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto text-xs">
-            <div class="text-center">
-              <div class="font-bold uppercase tracking-wider mb-2">Status</div>
-              <div class="opacity-60">Development Phase</div>
-            </div>
-            <div class="text-center">
-              <div class="font-bold uppercase tracking-wider mb-2">Preview</div>
-              <div class="opacity-60">PCB Visualization Available</div>
-            </div>
-            <div class="text-center">
-              <div class="font-bold uppercase tracking-wider mb-2">Updates</div>
-              <div class="opacity-60">Coming Soon</div>
-            </div>
-          </div>
         </div>
-      </main>
-
-      <!-- Footer -->
-      <footer class="px-8 py-6 border-t border-gray-300 text-center">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div class="text-xs uppercase tracking-widest opacity-40">
-            <a href="https://mono.layogtima.com" target="_blank">Built with MONO design system</a>
-          </div>
-          <div class="flex items-center gap-4 text-xs opacity-60">
-            <span>2025</span>
-            <span>•</span>
-            <span>Open Source</span>
-          </div>
-        </div>
-      </footer>
-      
     </div>
-
-    <!-- Fullscreen PCB Viewer Overlay -->
-    <div id="fullscreenOverlay" class="fullscreen-overlay">
-      
-      <!-- Close Button -->
-      <button id="closeBtn" class="absolute top-6 right-6 z-50 bg-black text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover-invert transition-all duration-200 border-2 border-black">
-        ✕ Close Preview
-      </button>
-      
-      <!-- Controls Header -->
-      <div class="bg-gray-100 border-b-2 border-black px-6 py-4 relative z-40">
-        <div class="flex flex-col md:flex-row gap-4 items-start md:items-center mobile-stack">
-          
-          <!-- Primary Actions -->
-          <div class="flex gap-3">
-            <button id="loadSidekickBtn" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover-invert transition-all duration-200 border-2 border-black">
-              🔬 Load Sidekick PCB
-            </button>
-            <button id="resetBtn" class="bg-gray-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-gray-600 transition-all duration-200 border-2 border-gray-600">
-              ↻ Reset
-            </button>
-          </div>
-          
-          <!-- Custom Repository Input -->
-          <div class="flex flex-col md:flex-row gap-2 items-start md:items-center mobile-full">
-            <label class="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Custom Repo:</label>
-            <div class="flex gap-2 mobile-full">
-              <input 
-                type="text" 
-                id="repoUrl" 
-                placeholder="https://github.com/username/repo"
-                value="https://github.com/makersidekick/pcb"
-                class="px-3 py-2 border-2 border-gray-300 text-xs font-mono focus:border-black focus:outline-none transition-colors mobile-full md:w-80"
-              />
-              <button id="loadCustomBtn" class="bg-gray-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-gray-600 transition-all duration-200 border-2 border-gray-600 whitespace-nowrap">
-                Load
-              </button>
-            </div>
-          </div>
-          
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://github.com/MakerSidekick" target="_blank" rel="noopener noreferrer" class="github-link">
+                <span class="github-text">open source</span>
+                <span class="github-arrow">→</span>
+            </a>
         </div>
-        
-        <!-- Status Bar -->
-        <div class="mt-4 flex items-center justify-between">
-          <div id="status" class="px-3 py-1 bg-gray-200 text-xs font-bold uppercase tracking-wider border border-gray-400 status-indicator">
-            Ready to load PCB files
-          </div>
-          <div class="text-xs opacity-60">
-            Powered by KiCanvas Alpha
-          </div>
-        </div>
-        
-      </div>
-      
-      <!-- PCB Viewer Container -->
-      <div class="flex-1 relative bg-gray-50 grid-bg">
-        
-        <!-- Placeholder State -->
-        <div id="placeholder" class="absolute inset-0 flex items-center justify-center p-8">
-          <div class="max-w-2xl text-center">
-            
-            <!-- Large PCB Icon -->
-            <div class="w-32 h-32 mx-auto mb-8 border-4 border-black flex items-center justify-center relative">
-              <div class="w-16 h-16 border-2 border-black"></div>
-              <div class="absolute top-2 left-2 w-2 h-2 bg-black rounded-full"></div>
-              <div class="absolute top-2 right-2 w-2 h-2 bg-black rounded-full"></div>
-              <div class="absolute bottom-2 left-2 w-2 h-2 bg-black rounded-full"></div>
-              <div class="absolute bottom-2 right-2 w-2 h-2 bg-black rounded-full"></div>
-            </div>
-            
-            <h3 class="text-3xl font-bold mb-6 uppercase tracking-wider">
-              PCB<span class="text-xs align-super"> PREVIEW</span>
-            </h3>
-            
-            <div class="space-y-4 text-sm leading-relaxed max-w-lg mx-auto">
-              <p>
-                Load the <strong>Sidekick PCB</strong> files using the button above, 
-                or enter a custom GitHub repository URL containing KiCad files.
-              </p>
-              
-              <div class="border-l-4 border-black pl-4 text-left my-8">
-                <p class="font-bold mb-2 text-xs uppercase tracking-wider">Features:</p>
-                <ul class="space-y-1 text-xs opacity-80">
-                  <li>• Interactive layer visualization</li>
-                  <li>• Component identification</li>
-                  <li>• Measurement tools</li>
-                  <li>• GitHub integration</li>
-                </ul>
-              </div>
-              
-              <div class="bg-yellow-50 border-2 border-yellow-300 p-4 text-left">
-                <p class="text-xs font-bold uppercase tracking-wider mb-2">⚠️ Alpha Notice:</p>
-                <p class="text-xs opacity-80">
-                  KiCanvas is in active development. Some features like zooming 
-                  and advanced measurements may not be fully available.
-                </p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        
-        <!-- KiCanvas Iframe -->
-        <iframe 
-          id="kicanvasFrame" 
-          class="kicanvas-iframe absolute inset-4" 
-          style="display: none;"
-          title="KiCanvas PCB Viewer"
-          sandbox="allow-same-origin allow-scripts allow-forms"
-        ></iframe>
-        
-      </div>
-    </div>
-
-    <script>
-      // Configuration
-      const DEFAULT_REPO = 'https://github.com/makersidekick/pcb';
-      
-      // DOM Elements
-      const previewBtn = document.getElementById('previewBtn');
-      const fullscreenOverlay = document.getElementById('fullscreenOverlay');
-      const closeBtn = document.getElementById('closeBtn');
-      const loadSidekickBtn = document.getElementById('loadSidekickBtn');
-      const resetBtn = document.getElementById('resetBtn');
-      const repoUrl = document.getElementById('repoUrl');
-      const loadCustomBtn = document.getElementById('loadCustomBtn');
-      const status = document.getElementById('status');
-      const placeholder = document.getElementById('placeholder');
-      const kicanvasFrame = document.getElementById('kicanvasFrame');
-
-      // Utility function to encode GitHub URL for KiCanvas
-      function encodeKiCanvasUrl(githubRepoUrl) {
-        try {
-          // Clean up the URL
-          let cleanUrl = githubRepoUrl.trim();
-          if (!cleanUrl.startsWith('http')) {
-            cleanUrl = 'https://' + cleanUrl;
-          }
-          
-          // Encode the URL for KiCanvas
-          const encodedUrl = encodeURIComponent(cleanUrl);
-          return `https://kicanvas.org/?github=${encodedUrl}`;
-        } catch (error) {
-          throw new Error('Invalid GitHub repository URL');
-        }
-      }
-
-      // Enhanced status management
-      function updateStatus(message, type = '') {
-        status.textContent = message;
-        status.className = `px-3 py-1 bg-gray-200 text-xs font-bold uppercase tracking-wider border border-gray-400 status-indicator`;
-        
-        // Add type-specific styling
-        if (type === 'loading') {
-          status.classList.add('loading', 'bg-blue-100', 'border-blue-300', 'text-blue-800');
-        } else if (type === 'success') {
-          status.classList.add('bg-green-100', 'border-green-300', 'text-green-800');
-        } else if (type === 'error') {
-          status.classList.add('bg-red-100', 'border-red-300', 'text-red-800');
-        }
-      }
-
-      // Load PCB in KiCanvas iframe
-      function loadPCB(githubUrl) {
-        try {
-          updateStatus('🔄 Connecting to GitHub repository...', 'loading');
-          
-          const kicanvasUrl = encodeKiCanvasUrl(githubUrl);
-          
-          // Show loading state
-          placeholder.style.display = 'none';
-          kicanvasFrame.style.display = 'block';
-          kicanvasFrame.src = kicanvasUrl;
-          
-          // Update status after a delay
-          setTimeout(() => {
-            updateStatus('🔄 Loading PCB visualization...', 'loading');
-          }, 1000);
-          
-          setTimeout(() => {
-            updateStatus('✅ PCB loaded successfully', 'success');
-          }, 3000);
-          
-        } catch (error) {
-          updateStatus(`❌ Error: ${error.message}`, 'error');
-          resetViewer();
-          console.error('Load error:', error);
-        }
-      }
-
-      // Reset viewer to initial state
-      function resetViewer() {
-        kicanvasFrame.src = '';
-        kicanvasFrame.style.display = 'none';
-        placeholder.style.display = 'flex';
-        updateStatus('Ready to load PCB files');
-      }
-
-      // Fullscreen functionality
-      previewBtn.addEventListener('click', () => {
-        fullscreenOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-      
-      closeBtn.addEventListener('click', () => {
-        fullscreenOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        resetViewer();
-      });
-      
-      // Close on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullscreenOverlay.classList.contains('active')) {
-          closeBtn.click();
-        }
-      });
-
-      // Load Sidekick PCB
-      loadSidekickBtn.addEventListener('click', () => {
-        loadPCB(DEFAULT_REPO);
-      });
-
-      // Reset button
-      resetBtn.addEventListener('click', () => {
-        resetViewer();
-      });
-
-      // Load custom repository
-      loadCustomBtn.addEventListener('click', () => {
-        const url = repoUrl.value.trim();
-        if (!url) {
-          updateStatus('❌ Please enter a GitHub repository URL', 'error');
-          return;
-        }
-        loadPCB(url);
-      });
-
-      // Allow Enter key in input field
-      repoUrl.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          loadCustomBtn.click();
-        }
-      });
-
-      // Enhanced iframe error handling
-      kicanvasFrame.addEventListener('load', () => {
-        if (kicanvasFrame.src) {
-          updateStatus('✅ PCB viewer ready', 'success');
-        }
-      });
-
-      kicanvasFrame.addEventListener('error', () => {
-        updateStatus('❌ Failed to load PCB viewer', 'error');
-        resetViewer();
-      });
-
-      // Initialize
-      updateStatus('Ready to load PCB files');
-    </script>
-
-  </body>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
 </html>
