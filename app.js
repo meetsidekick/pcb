@@ -12,26 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!fallbackMsg) return;
     console.log('Showing fallback message');
     fallbackMsg.classList.add('show');
-    startBreathingText();
+    fallbackMsg.style.opacity = '1';
+    fallbackMsg.style.display = 'block'; // Ensure it's visible
     if (modelViewer) modelViewer.style.display = 'none';
   }
-
-  function startBreathingText() {
+  
+   function hideFallback() {
     if (!fallbackMsg) return;
-    let visible = true;
-    fallbackMsg.style.opacity    = '1';
-    fallbackMsg.style.transition = 'opacity 1.2s ease-in-out';
-    fallbackMsg._breathing = setInterval(() => {
-      fallbackMsg.style.opacity = visible ? '0.4' : '1';
-      visible = !visible;
-    }, 1200);
+    fallbackMsg.classList.remove('show');
+    fallbackMsg.style.opacity = '0';
+    fallbackMsg.style.display = 'none';
   }
 
-  function stopBreathingText() {
-    if (!fallbackMsg) return;
-    clearInterval(fallbackMsg._breathing);
-    fallbackMsg.style.opacity = '1';
-  }
 
   /* ---------- Incremental text animation ---------- */
   function initTextAnimations() {
@@ -80,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Model loaded successfully');
       clearTimeout(modelTimeout);
       fallbackMsg.classList.remove('show');
-      stopBreathingText();
       modelViewer.style.display   = 'block';
       modelViewer.style.transition = 'opacity 0.2s ease';
     });
