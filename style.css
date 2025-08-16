@@ -1120,3 +1120,18 @@ model-viewer {
 .github-link * {
     pointer-events: none; /* Prevent child elements from blocking clicks */
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
+.main-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+model-viewer {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
