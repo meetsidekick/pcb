@@ -1,9 +1,9 @@
 # pcb
 
 > [!WARNING]
-> This is a Work In Progress! PLease make an issue if you think something can be improved or if you find something wrong! Thanks.
+> This is a Work In Progress! Please make an issue if you think something can be improved or if you find something wrong! Thanks.
 
-This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.5.0`
+This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.5.1`. The latest version can be found on the releases page along with gerber files. 
 
 ## Open Locally(KiCad)
 
