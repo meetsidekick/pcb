@@ -29,11 +29,11 @@ Now open KiCad, navigate to `File` -> `Open Project` and select this project.
 
 ### Render
 
-![A screenshot of the full sidekick board, assembled, rendered, front side](assets/render-front.png)
+![A screenshot of the full sidekick board, assembled, rendered, front side](assets/sidekick-front.png)
 
 ![A screenshot of the full sidekick board, assembled, rendered, middle view](assets/sidekick-middle.png)
 
-![A screenshot of the full sidekick board, assembled, rendered, back side](assets/render-back.png)
+![A screenshot of the full sidekick board, assembled, rendered, back side](assets/sidekick-back.png)
 
 ![A screenshot of a sidekick board, rendered, front side](assets/render-front.png)
 
