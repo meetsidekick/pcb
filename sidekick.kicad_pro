@@ -489,7 +489,7 @@
       "plot": "../out-v0-5-1/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "assets/3d/sidekick.glb",
+      "step": "assets/3d/sidekick-pcb.glb",
       "svg": "",
       "vrml": "assets/3d/sidekick.wrl"
     },

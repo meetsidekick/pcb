@@ -1,0 +1,63 @@
+name: KiCad GLB Export and Push
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**/*.kicad_pcb'
+
+jobs:
+  export-glb:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+
+    - name: Install KiCad
+      run: |
+        sudo add-apt-repository --yes ppa:kicad/kicad-9.0-releases
+        sudo apt update
+        sudo apt install -y kicad-cli
+
+    - name: Download and set up gltfpack
+      run: |
+        wget https://github.com/zeux/meshoptimizer/releases/download/latest/gltfpack-ubuntu.zip
+        unzip gltfpack-ubuntu.zip
+        chmod +x gltfpack
+
+    - name: Run KiCad export and gltfpack commands
+      run: |
+        projectDir="${{ github.workspace }}"
+        outputDir="$projectDir/assets/3d"
+
+        mkdir -p "$outputDir"
+
+        # Export sidekick.glb
+        kicad-cli pcb export glb --subst-models --include-tracks --include-pads --include-zones \
+          --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
+          --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
+          -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb"
+
+        # Optimize sidekick.glb with gltfpack
+        ./gltfpack -i "$outputDir/sidekick.glb" -o "$outputDir/sidekick-min-gltfpack.glb"
+
+        # Export sidekick-pcb.glb (without components)
+        kicad-cli pcb export glb --subst-models --no-components --include-tracks --include-pads --include-zones \
+          --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
+          --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
+          -o "$outputDir/sidekick-pcb.glb" "$projectDir/sidekick.kicad_pcb"
+
+        # Optimize sidekick-pcb.glb with gltfpack
+        ./gltfpack -i "$outputDir/sidekick-pcb.glb" -o "$outputDir/sidekick-pcb-min-gltfpack.glb"
+
+    - name: Configure Git user
+      run: |
+        git config user.name "Github Actions"
+        git config user.email "actions@github.com"
+
+    - name: Commit and push changes
+      run: |
+        git add assets/3d
+        git diff --cached --quiet || git commit -m "Auto-export GLB files and optimize with gltfpack"
+        git push
