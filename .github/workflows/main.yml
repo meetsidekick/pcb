@@ -24,7 +24,7 @@ jobs:
 
     - name: Download and set up gltfpack
       run: |
-        wget https://github.com/zeux/meshoptimizer/releases/download/latest/gltfpack-ubuntu.zip
+        wget github.com/zeux/meshoptimizer/releases/latest/download/gltfpack-ubuntu.zip
         unzip gltfpack-ubuntu.zip
         chmod +x gltfpack
 
