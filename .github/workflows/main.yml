@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '**/*.kicad_pcb'
+      - '**/main.yml'
 
 jobs:
   export-glb:
@@ -18,7 +19,7 @@ jobs:
       run: |
         sudo add-apt-repository --yes ppa:kicad/kicad-9.0-releases
         sudo apt update
-        sudo apt install -y kicad-cli
+        sudo apt install --install-recommends kicad -y
 
     - name: Download and set up gltfpack
       run: |
@@ -34,7 +35,7 @@ jobs:
         mkdir -p "$outputDir"
 
         # Export sidekick.glb
-        kicad-cli pcb export glb --subst-models --include-tracks --include-pads --include-zones \
+        kicad-cli pcb export glb --subst-models --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
           -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb"
@@ -43,7 +44,7 @@ jobs:
         ./gltfpack -i "$outputDir/sidekick.glb" -o "$outputDir/sidekick-min-gltfpack.glb"
 
         # Export sidekick-pcb.glb (without components)
-        kicad-cli pcb export glb --subst-models --no-components --include-tracks --include-pads --include-zones \
+        kicad-cli pcb export glb --subst-models --no-components --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
           -o "$outputDir/sidekick-pcb.glb" "$projectDir/sidekick.kicad_pcb"
