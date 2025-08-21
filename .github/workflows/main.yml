@@ -19,7 +19,8 @@ jobs:
       run: |
         sudo add-apt-repository --yes ppa:kicad/kicad-9.0-releases
         sudo apt update
-        sudo apt install --install-recommends kicad -y
+        sudo apt install kicad -y
+        whereis kicad-cli
 
     - name: Download and set up gltfpack
       run: |
