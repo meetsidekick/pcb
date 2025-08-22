@@ -41,14 +41,17 @@ jobs:
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
           -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb"
 
-        # Optimize sidekick.glb with gltfpack
-        ./gltfpack -i "$outputDir/sidekick.glb" -o "$outputDir/sidekick-min-gltfpack.glb"
 
         # Export sidekick-pcb.glb (without components)
         kicad-cli pcb export glb --subst-models --no-components --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
           -o "$outputDir/sidekick-pcb.glb" "$projectDir/sidekick.kicad_pcb"
+
+
+        echo "Packing glb files"
+        # Optimize sidekick.glb with gltfpack
+        ./gltfpack -i "$outputDir/sidekick.glb" -o "$outputDir/sidekick-min-gltfpack.glb"
 
         # Optimize sidekick-pcb.glb with gltfpack
         ./gltfpack -i "$outputDir/sidekick-pcb.glb" -o "$outputDir/sidekick-pcb-min-gltfpack.glb"
