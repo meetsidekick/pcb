@@ -34,19 +34,21 @@ jobs:
         outputDir="$projectDir/assets/3d"
 
         mkdir -p "$outputDir"
+        rm -rf "$outputDir"/*.glb
 
         # Export sidekick.glb
         kicad-cli pcb export glb --subst-models --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
-          -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb"
+          -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb"  || ( [ -f sidekick.glb ] && echo "sidekick.glb found, continuing..." || exit )
 
 
         # Export sidekick-pcb.glb (without components)
         kicad-cli pcb export glb --subst-models --no-components --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
-          -o "$outputDir/sidekick-pcb.glb" "$projectDir/sidekick.kicad_pcb"
+          -o "$outputDir/sidekick-pcb.glb" "$projectDir/sidekick.kicad_pcb"   || ( [ -f sidekick-pcb.glb ] && echo "sidekick-pcb.glb found, continuing..." || exit )
+
 
 
         echo "Packing glb files"
