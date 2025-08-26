@@ -38,7 +38,7 @@ jobs:
 
         # Export sidekick.glb
         kicad-cli pcb export glb --subst-models --include-tracks --include-pads --include-zones \
-          --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
+          --include-inner-copper --include-silkscreen --include-soldermask \
           --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
           -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb" || true
 
