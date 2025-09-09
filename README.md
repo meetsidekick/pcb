@@ -1,8 +1,5 @@
 # pcb
 
-> [!WARNING]
-> This is a Work In Progress! Please make an issue if you think something can be improved or if you find something wrong! Thanks.
-
 This project follows the [Pride Versioning Scheme](https://pridever.org)! Current Version: `v0.5.1`. The latest version can be found on the releases page along with gerber files. 
 
 ## Open Locally(KiCad)
@@ -11,7 +8,7 @@ This project follows the [Pride Versioning Scheme](https://pridever.org)! Curren
 > Recursive is important as we use many submodules! If you forget to do this, ensure that you run the 3rd command from here where we run `git submodule update --init --recursive`
 
 ```bash
-git clone https://github.com/MakerSidekick/pcb --recursive sidekick-pcb
+git clone https://github.com/MeetSidekick/pcb --recursive sidekick-pcb
 ```
 
 ```bash
@@ -23,6 +20,10 @@ git submodule update --init --recursive
 ```
 
 Now open KiCad, navigate to `File` -> `Open Project` and select this project. 
+
+
+> [!TIP]
+> We have recently migrated from the old repo, please use this. The releases prior to `v0.5.1` can be found at: https://github.com/MakerSidekick/pcb/releases/
 
 ## Assets
 
