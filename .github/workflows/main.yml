@@ -54,6 +54,22 @@ jobs:
           -o "$outputDir/sidekick.glb" "$projectDir/sidekick.kicad_pcb" || true
         fi
 
+        # Export sidekick.step
+        kicad-cli pcb export step --subst-models --include-tracks --include-pads --include-zones \
+          --include-inner-copper --include-silkscreen --include-soldermask \
+          --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
+          -o "$outputDir/sidekick.step" "$projectDir/sidekick.kicad_pcb" || true
+
+        if [ -f "$outputDir/sidekick.step" ]; then
+          echo "sidekick.step found, continuing..."
+        else
+          echo "Error: sidekick.step not created."
+          kicad-cli pcb export step --subst-models --include-tracks \
+          --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
+          --cut-vias-in-body --fill-all-vias --drill-origin --min-distance=0.100mm -f \
+          -o "$outputDir/sidekick.step" "$projectDir/sidekick.kicad_pcb" || true
+        fi
+
         # Export sidekick-pcb.glb (without components)
         kicad-cli pcb export glb --subst-models --no-components --include-tracks \
           --include-inner-copper --include-silkscreen --include-soldermask --fuse-shapes \
